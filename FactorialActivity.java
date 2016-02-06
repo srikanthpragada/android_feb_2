@@ -26,13 +26,18 @@ public class FactorialActivity extends AppCompatActivity {
     public void factorial(View v) {
         Log.i("First", "You clicked on the button!");
 
-        int num =  Integer.parseInt( editNumber.getText().toString());
+        try {
+            int num = Integer.parseInt(editNumber.getText().toString());
 
-        int fact = 1;
-        for (int i = 2; i <= num; i ++)
-             fact = fact * i;
+            int fact = 1;
+            for (int i = 2; i <= num; i++)
+                fact = fact * i;
 
-        textResult.setText( String.valueOf(fact));
+            textResult.setText(String.valueOf(fact));
+        }
+        catch(Exception ex) {
+            Toast.makeText(this,"Please enter a number!", Toast.LENGTH_LONG).show();
+        }
     }
 
     // handles click event of Clear button
